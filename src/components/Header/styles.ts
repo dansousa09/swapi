@@ -14,8 +14,7 @@ export const Container = styled.header`
   width: 100%;
   height: 20%; 
 
-  position: absolute;
-  top: 0;
+  margin: 1rem 0;
 `; 
 
 export const StarWarsLogo = styled(Logo)`

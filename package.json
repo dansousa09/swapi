@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.3",
+    "avataaars": "^2.0.0",
     "axios": "^0.27.2",
     "next": "11.1.2",
     "next-images": "^1.8.1",

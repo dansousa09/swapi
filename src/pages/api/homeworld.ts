@@ -1,0 +1,14 @@
+import { NextApiRequest, NextApiResponse } from "next";
+import api from "../../api";
+
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+    try {
+        const { id } = req.query;
+        const { data } = await api.get(`/planets/${id}`); 
+        res.status(200).json(data);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+export default handler;

@@ -6,8 +6,8 @@ import api from '../../api';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   
   try {
-    const data = await api.get('/people')
-    res.status(200).json(data.data);
+    const data = await api.get('/people') 
+    res.status(200).json(data.data); 
   } catch (error) {
     return res.status(500).json({ message: error.message })
   }
