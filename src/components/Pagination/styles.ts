@@ -1,3 +1,32 @@
+import { Stack, Typography } from "@mui/material";
+import { Pagination as Pages } from '@mui/material';
 import styled from "styled-components"; 
 
-export const Container = styled.div``;
+export const Container = styled(Stack)`
+    background-color: ${(props) => props.theme.colors.background};
+    width: 100%;
+    height: 100%;
+    padding: 20px 4rem;
+
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+`;
+
+export const Pagination = styled(Pages)`
+  color: ${(props) => props.theme.colors.text};
+  background-color: ${(props) => props.theme.colors.tertiary};
+
+  padding: 4px 0.5rem;
+  border-radius: 0.5rem; 
+  width: 75%; 
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CurrentPage = styled(Typography)`
+  margin: 0.5rem 0;
+  color: ${(props) => props.theme.colors.tertiary};
+`;

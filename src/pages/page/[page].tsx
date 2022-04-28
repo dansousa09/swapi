@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
-import { Container } from "../styles/pages/Home";
+import { Container } from "../../styles/pages/Home";
 import { GetServerSideProps } from "next";
-import { IData } from "../interfaces";
-import Header from "../components/Header";
-import List from "../components/List";
-import Pagination from "../components/Pagination";
-import getHomeworld from "../utils/gethomeworld";
+import { IData } from "../../interfaces";
+import Header from "../../components/Header";
+import List from "../../components/List";
+import Pagination from "../../components/Pagination";
+import getHomeworld from "../../utils/gethomeworld";
 import { Backdrop, CircularProgress } from '@mui/material';
 
 
