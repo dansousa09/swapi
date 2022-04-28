@@ -2,10 +2,12 @@ import React from "react";
 import Head from "next/head";
 
 import { Container } from "../styles/pages/Home";
+import { GetServerSideProps } from "next";
+import { IData } from "../interfaces";
 import Header from "../components/Header";
 import List from "../components/List";
-import { GetServerSideProps } from "next";
-import { IData, ICharacter, IHomeWorld } from "../interfaces";
+import Pagination from "../components/Pagination";
+import getHomeworld from "../utils/gethomeworld";
 
 interface Props {
     data: IData;
@@ -18,7 +20,8 @@ const Home: React.FC<Props> = ({ data }) => {
                 <title>Swapi</title>
             </Head>
             <Header />
-            <List data={data} />
+            <List data={data} /> 
+            <Pagination />
         </Container>
     );
 };
@@ -26,14 +29,6 @@ const Home: React.FC<Props> = ({ data }) => {
 export const getServerSideProps: GetServerSideProps = async () => {
     const res = await fetch('http://localhost:3000/api/characters');
     const data: IData = await res.json();
-
-    const getHomeworld = async (url: string): Promise<IHomeWorld> => {
-        const planetsIndex = url.indexOf('planets');
-        const id = url.slice(planetsIndex + ('planets'.length + 1));
-        const response = await fetch(`http://localhost:3000/api/homeworld?id=${id}`);
-        const data = await response.json();
-        return data;
-    };
 
     for (let i = 0; i < data.results.length; i++) {
         let homeworlds = await getHomeworld(data.results[i].homeworld);

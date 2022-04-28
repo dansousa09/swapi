@@ -11,7 +11,7 @@ export const Container = styled(ListItem)`
 
     display: flex; 
     justify-content: flex-start;
-    align-items: start;
+    align-items: center;
 `;
 
 export const AvatarItem = styled(ListItemAvatar)`
@@ -43,11 +43,21 @@ export const Texts = styled.div`
 `;
 
 export const Name = styled(Typography)`
-
+    font-size: 1rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.text};
 `;
 
 export const Homeworld = styled(Typography)`
-
+    font-size: 0.8rem; 
+    opacity: 0.7;
+    color: ${(props) => props.theme.colors.text};
 `;
 
-export const Divider = styled.hr``;
+export const Divider = styled.hr`
+    height: 75%;
+    width: 2px; 
+    margin: 0 0.5rem; 
+    color: ${(props) => props.theme.colors.text};
+
+`;

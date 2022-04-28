@@ -1,6 +1,4 @@
-import { GetServerSideProps } from 'next';
-import { useEffect, useState } from 'react';
-import { ICharacter, IHomeWorld } from '../../interfaces';
+import { ICharacter } from '../../interfaces';
 import * as C from './styles'
 
 interface Props {

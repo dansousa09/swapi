@@ -14,11 +14,15 @@ export const Container = styled.header`
   width: 100%;
   height: 20%; 
 
-  margin: 1rem 0;
+  margin: 2rem 0;
 `; 
 
-export const StarWarsLogo = styled(Logo)`
-  
+export const StarWarsLogo = styled(Typography)`
+  font-weight: 600;
+  color: ${props => props.theme.colors.secondary}; 
+  font-size: 5rem;
+  margin-top: 2rem;
+
 `;
 
 export const Title = styled(Typography)` 

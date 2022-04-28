@@ -11,5 +11,13 @@ export default createGlobalStyle`
         background-color: ${(props) => props.theme.colors.background};
         color: ${(props) => props.theme.colors.text}; 
         font: 400 16px Roboto, sans-serif
+    } 
+
+    button {
+        cursor: pointer;
+    } 
+
+    a {
+        text-decoration: none; 
     }
 `;
