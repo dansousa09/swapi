@@ -5,11 +5,11 @@ import styled from "styled-components";
 export const Container = styled(Stack)`
     background-color: ${(props) => props.theme.colors.background};
     width: 100%;
-    height: 100%;
-    padding: 20px 4rem;
+    flex: 1;
+    padding: 0 4rem;
 
     display: flex; 
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 `;
 

@@ -3,12 +3,13 @@ import * as C from './styles'
 
 interface Props {
   item: ICharacter;
+  queryMin800: boolean;
 }
 
-const ListItem: React.FC<Props> = ({ item }) => {
+const ListItem: React.FC<Props> = ({ item, queryMin800 }) => {
 
   return (
-    <C.Container>
+    <C.Container queryMin800={queryMin800} >
       <C.AvatarItem>
         <C.AvatarImg>
           <C.AvatarIcon

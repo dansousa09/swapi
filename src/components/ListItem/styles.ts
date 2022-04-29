@@ -2,14 +2,20 @@ import styled from "styled-components";
 import { ListItem, ListItemAvatar, Avatar, Typography } from "@mui/material";
 import Avataaar from "avataaars";
 
-export const Container = styled(ListItem)`
+interface IContainerProps {
+    queryMin800: boolean;
+}
+
+export const Container = styled(ListItem)<IContainerProps>`
     background-color: ${(props) => props.theme.colors.tertiary};
-    width: 100%;
+
+    ${(props) => (props.queryMin800 ? ` width: 100%;` : ` min-width: 100%;`)}
+
     height: 100%;
 
     border-radius: 8px;
 
-    display: flex; 
+    display: flex;
     justify-content: flex-start;
     align-items: center;
 `;
@@ -20,7 +26,7 @@ export const AvatarItem = styled(ListItemAvatar)`
 
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 `;
 
 export const AvatarImg = styled(Avatar)`
@@ -49,15 +55,14 @@ export const Name = styled(Typography)`
 `;
 
 export const Homeworld = styled(Typography)`
-    font-size: 0.8rem; 
+    font-size: 0.8rem;
     opacity: 0.7;
     color: ${(props) => props.theme.colors.text};
 `;
 
 export const Divider = styled.hr`
     height: 75%;
-    width: 2px; 
-    margin: 0 0.5rem; 
+    width: 2px;
+    margin: 0 0.5rem;
     color: ${(props) => props.theme.colors.text};
-
 `;
