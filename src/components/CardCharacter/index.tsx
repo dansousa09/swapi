@@ -21,7 +21,9 @@ const CardCharacter: React.FC<IProps> = ({ data }) => {
   return (
     <C.Container queryMin900={queryMin900} >
       <C.AvatarArea queryMin900={queryMin900} >
-        <C.AvatarItem>
+        <C.AvatarItem
+          style={{  width: '4rem', height: '4rem' }}
+        >
           <C.AvatarImg>
             <C.AvatarIcon
               avatarStyle='Circle'
@@ -29,7 +31,7 @@ const CardCharacter: React.FC<IProps> = ({ data }) => {
             />
           </C.AvatarImg>
         </C.AvatarItem>
-        <C.Name variant='h1' >{data.name}</C.Name>
+        <C.Name variant="body1" >{data.name}</C.Name>
       </C.AvatarArea>
       <C.InfoArea queryMin900={queryMin900}>
         <C.DetailsTitle variant='h6'>Character Details</C.DetailsTitle>
