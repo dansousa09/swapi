@@ -8,21 +8,44 @@ import {
 } from "@mui/material";
 import Avataaar from "avataaars";
 
-export const Container = styled.main`
+interface IProps {
+    queryMin900: boolean;
+}
+
+export const Container = styled.main<IProps>`
     background-color: ${(props) => props.theme.colors.background};
     width: 100%;
     height: 90%;
     padding: 0 4rem;
 
+    margin-top: ${(props) => (props.queryMin900 ? "0" : "2rem")};
+    padding-top: ${(props) => (props.queryMin900 ? "0" : "2rem")};
+
     display: flex;
+    flex-direction: ${(props) => (props.queryMin900 ? "row" : "column")};
     justify-content: flex-start;
     align-items: center;
+    gap: 2rem;
+    overflow-y: ${(props) => (props.queryMin900 ? "visible" : "scroll")};
+    overflow-x: hidden;
+
+    ::-webkit-scrollbar {
+        width: 0.8rem;
+        margin-left: 4px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: ${(props) => props.theme.colors.secondary};
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: ${(props) => props.theme.colors.background};
+    }
 `;
 
-export const AvatarArea = styled.div`
-    width: 50%;
+export const AvatarArea = styled.div<IProps>`
+    width: ${(props) => (props.queryMin900 ? "50%" : "70vw")};
     display: flex;
-    flex-direction: column;
+    flex-direction: ${(props) => (props.queryMin900 ? "column" : "row")};
     justify-content: center;
     align-items: center;
 
@@ -54,8 +77,8 @@ export const Name = styled(Typography)`
     color: ${(props) => props.theme.colors.secondary};
 `;
 
-export const InfoArea = styled.div`
-    width: 40%;
+export const InfoArea = styled.div<IProps>`
+    width: ${(props) => (props.queryMin900 ? "50%" : "70vw")};
     border: solid 1px ${(props) => props.theme.colors.tertiary};
     border-radius: 4px;
     padding: 1rem;

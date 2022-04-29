@@ -1,6 +1,7 @@
-import { Typography } from '@mui/material';
-import React from 'react'
+import { useMediaQuery } from '@mui/material';
+import React, { useEffect } from 'react'
 import { ICharacter } from '../../interfaces'
+import { getRandomAvatar } from '../../utils/avataaars';
 import * as C from './styles'
 
 interface IProps {
@@ -8,21 +9,29 @@ interface IProps {
 }
 
 const CardCharacter: React.FC<IProps> = ({ data }) => {
-  console.log(data);
+  const [avatarOptions, setAvatarOptions] = React.useState({})
+
+  const queryMin900 = useMediaQuery('(min-width: 900px)'); 
+
+  useEffect(() => {
+    const options = getRandomAvatar();
+    setAvatarOptions(options);
+  }, [data])
+
   return (
-    <C.Container>
-      <C.AvatarArea>
+    <C.Container queryMin900={queryMin900} >
+      <C.AvatarArea queryMin900={queryMin900} >
         <C.AvatarItem>
           <C.AvatarImg>
             <C.AvatarIcon
               avatarStyle='Circle'
-              hairColor={data.hair_color}
+              {...avatarOptions}
             />
           </C.AvatarImg>
         </C.AvatarItem>
         <C.Name variant='h1' >{data.name}</C.Name>
       </C.AvatarArea>
-      <C.InfoArea>
+      <C.InfoArea queryMin900={queryMin900}>
         <C.DetailsTitle variant='h6'>Character Details</C.DetailsTitle>
         <C.List>
           <C.Keys>
@@ -80,9 +89,15 @@ const CardCharacter: React.FC<IProps> = ({ data }) => {
               <span>{data.homeworld}</span>
             </C.ListItem>
             <C.ListItem>
-              <span>{data.films.map((film) => (
-                <p>{film}</p>
-              ))}</span>
+              <span>
+                {data.films.map((film, index) => {
+                  if (index <= 2) {
+                    return (
+                      <p>{film}</p>
+                    )
+                  }
+                })}
+              </span>
             </C.ListItem>
           </C.Values>
         </C.List>

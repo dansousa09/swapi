@@ -10,7 +10,7 @@ export const Container = styled.div`
     align-items: center;
     flex-direction: column;
 
-    /* padding: 0 4rem; */
+    padding: 0 4rem;
 
     background-color: ${props => props.theme.colors.background};
 `;

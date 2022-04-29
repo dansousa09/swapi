@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import { ICharacter } from '../../interfaces';
+import { getRandomAvatar } from '../../utils/avataaars';
 import * as C from './styles'
 
 interface Props {
@@ -8,13 +10,20 @@ interface Props {
 
 const ListItem: React.FC<Props> = ({ item, queryMin800 }) => {
 
+  const [avatarOptions, setAvatarOptions] = useState({})
+
+  useEffect(() => {
+    const options = getRandomAvatar();
+    setAvatarOptions(options);
+  }, [item])
+
   return (
     <C.Container queryMin800={queryMin800} >
       <C.AvatarItem>
         <C.AvatarImg>
           <C.AvatarIcon
             avatarStyle='Circle'
-            hairColor={item.hair_color}
+            {...avatarOptions}
           />
         </C.AvatarImg>
       </C.AvatarItem>
