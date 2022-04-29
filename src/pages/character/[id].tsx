@@ -11,7 +11,7 @@ const Character = ({ data }) => {
 
   const redirect = () => {
     const windowUrl = window.location.href;
-    router.push('/');
+    router.back();
 
     if (windowUrl.includes('character')) {
       setBackdropOpen(true);

@@ -30,12 +30,11 @@ export const MainList = styled(List)<IMainListProps>`
                 justify-content: flex-start;
                 align-items: center;
                 gap: 1rem; 
-                width: 100%; 
                 `}
 
-    padding: 0 1rem;
+    padding: 0 ${(props) => props.queryMin800 ? '1rem' : '0'};
 
-    width: 75%;
+    width: ${(props) => props.queryMin800 ? '75%' : '100%'};
     height: 100%;
 
     overflow-y: scroll;

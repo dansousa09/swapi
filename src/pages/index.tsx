@@ -16,6 +16,11 @@ const Container = styled.main`
     color: #fff;
 `;
 
+const Logo = styled.img`
+    width: 12rem;
+    height: auto;
+`;
+
 const Loading = styled.h1`
     font-size: 2rem;
     font-weight: bold;
@@ -37,11 +42,11 @@ const Redirect = () => {
     return (
         <Container>
             <CircularProgress size={65} color="warning" />
-            <Loading>Carregando...</Loading>
+            <Logo src="/logo.svg" />
             <Typist>
                 <Paragraph>{catchPhrases[Math.floor(Math.random() * catchPhrases.length)]}</Paragraph>
             </Typist>
-        </Container>
+        </Container >
     )
 };
 

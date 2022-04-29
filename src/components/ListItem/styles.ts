@@ -8,8 +8,9 @@ interface IContainerProps {
 
 export const Container = styled(ListItem)<IContainerProps>`
     background-color: ${(props) => props.theme.colors.tertiary};
+    cursor: pointer;
 
-    ${(props) => (props.queryMin800 ? ` width: 100%;` : ` min-width: 100%;`)}
+    min-width: 100%;
 
     height: 100%;
 

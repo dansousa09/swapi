@@ -1,10 +1,11 @@
 import { Divider } from '@mui/material';
 import * as C from './styles';
 
+
 const Header = () => {
   return (
     <C.Container>
-      <C.StarWarsLogo variant='h1'>{'Star Wars'.toUpperCase()}</C.StarWarsLogo>
+      <C.Logo src="/logo.svg" />
       <C.Title variant="body1">
         <C.RocketIcon />
         {'Star Wars Characters'.toUpperCase()}
