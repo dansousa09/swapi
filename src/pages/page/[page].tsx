@@ -8,7 +8,7 @@ import Header from "../../components/Header";
 import List from "../../components/List";
 import Pagination from "../../components/Pagination";
 import getHomeworld from "../../utils/gethomeworld";
-import { Backdrop, CircularProgress } from '@mui/material';
+import { Backdrop, CircularProgress, useMediaQuery } from '@mui/material';
 
 
 interface Props {
@@ -18,6 +18,8 @@ interface Props {
 const Home: React.FC<Props> = ({ data }) => {
     console.log(data);
     const [backdropOpen, setBackdropOpen] = useState(false);
+
+    const queryMin800 = useMediaQuery('(min-width:800px)');
 
     useEffect(() => {
         setBackdropOpen(false);
@@ -30,8 +32,8 @@ const Home: React.FC<Props> = ({ data }) => {
                 <title>Swapi</title>
             </Head>
             <Header />
-            <List data={data} />
-            <Pagination data={data} setBackdropOpen={setBackdropOpen} />
+            <List data={data} queryMin800={queryMin800} />
+            <Pagination data={data} setBackdropOpen={setBackdropOpen} queryMin800={queryMin800} />
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={backdropOpen}

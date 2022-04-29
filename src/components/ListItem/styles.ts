@@ -10,7 +10,8 @@ export const Container = styled(ListItem)<IContainerProps>`
     background-color: ${(props) => props.theme.colors.tertiary};
     cursor: pointer;
 
-    min-width: 100%;
+    min-width: ${(props) => (props.queryMin800 ? "100%" : "45vw")};
+    max-width: ${(props) => (props.queryMin800 ? "100%" : "55vw")};
 
     height: 100%;
 

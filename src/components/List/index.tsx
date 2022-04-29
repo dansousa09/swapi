@@ -1,5 +1,4 @@
 
-import { useMediaQuery } from '@mui/material';
 import { useRouter } from 'next/router';
 import { ICharacter, IData } from '../../interfaces';
 import ListItem from '../ListItem';
@@ -7,9 +6,10 @@ import * as C from './styles'
 
 interface Props {
   data: IData;
+  queryMin800: boolean;
 }
 
-const List: React.FC<Props> = ({ data }) => {
+const List: React.FC<Props> = ({ data, queryMin800 }) => {
 
   const router = useRouter();
 
@@ -17,8 +17,6 @@ const List: React.FC<Props> = ({ data }) => {
     const id = url.split('people/')[1];
     router.push(`/character/${id}`);
   }
-
-  const queryMin800 = useMediaQuery('(min-width:800px)'); 
 
   return (
     <C.Container>

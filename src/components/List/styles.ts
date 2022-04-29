@@ -40,7 +40,7 @@ export const MainList = styled(List)<IMainListProps>`
     overflow-y: scroll;
 
     ::-webkit-scrollbar {
-        width: 1rem;
+        width: 0.8rem;
         margin-left: 4px;
     }
     ::-webkit-scrollbar-thumb {
