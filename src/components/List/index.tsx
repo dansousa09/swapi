@@ -7,15 +7,18 @@ import * as C from './styles'
 interface Props {
   data: IData;
   queryMin800: boolean;
+  setBackdropOpen: (open: boolean) => void;
 }
 
-const List: React.FC<Props> = ({ data, queryMin800 }) => {
+const List: React.FC<Props> = ({ data, queryMin800, setBackdropOpen }) => {
 
   const router = useRouter();
 
-  const redirect = (url: string) => {
+  const redirect = (url: string) => { 
+    setBackdropOpen(true);
     const id = url.split('people/')[1];
     router.push(`/character/${id}`);
+
   }
 
   return (

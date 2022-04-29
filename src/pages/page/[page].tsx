@@ -16,7 +16,6 @@ interface Props {
 }
 
 const Home: React.FC<Props> = ({ data }) => {
-    console.log(data);
     const [backdropOpen, setBackdropOpen] = useState(false);
 
     const queryMin800 = useMediaQuery('(min-width:800px)');
@@ -32,7 +31,7 @@ const Home: React.FC<Props> = ({ data }) => {
                 <title>Swapi</title>
             </Head>
             <Header />
-            <List data={data} queryMin800={queryMin800} />
+            <List data={data} queryMin800={queryMin800} setBackdropOpen={setBackdropOpen} />
             <Pagination data={data} setBackdropOpen={setBackdropOpen} queryMin800={queryMin800} />
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}

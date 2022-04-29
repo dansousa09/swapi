@@ -2,12 +2,19 @@ import { useState } from 'react'
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 
-import { Backdrop, CircularProgress } from '@mui/material'
+import { Backdrop, CircularProgress, useMediaQuery } from '@mui/material'
 import getHomeworld from '../../utils/gethomeworld'
+
+import CardCharacter from '../../components/CardCharacter'
+import * as C from '../../styles/pages/Character'
+import Header from '../../components/Header'
+import getFilms from '../../utils/getFilms'
 
 const Character = ({ data }) => {
   const [backdropOpen, setBackdropOpen] = useState(false);
   const router = useRouter();
+
+  const queryMin800 = useMediaQuery('(min-width:800px)');
 
   const redirect = () => {
     const windowUrl = window.location.href;
@@ -20,9 +27,13 @@ const Character = ({ data }) => {
     }
   }
 
+
+
   return (
-    <div>
-      <h1 onClick={redirect} >{data.name}</h1>
+    <C.Container>
+      <Header />
+      <CardCharacter data={data} />
+      <C.BackButton onClick={redirect} ><C.BackIcon />Back</C.BackButton>
       <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={backdropOpen}
@@ -30,7 +41,7 @@ const Character = ({ data }) => {
       >
         <CircularProgress color="inherit" />
       </Backdrop>
-    </div>
+    </C.Container>
   )
 }
 
@@ -41,6 +52,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   let homeworlds = await getHomeworld(data.homeworld);
   data.homeworld = homeworlds.name;
+  let films = await getFilms(data.films);
+  data.films = films;
 
   return {
     props: {

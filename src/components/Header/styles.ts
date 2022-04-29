@@ -9,7 +9,7 @@ export const Container = styled.header`
     justify-content: center;
 
     width: 100%;
-    height: 15%;
+    height: 10%;
 
     margin: 2rem 0;
 `;
